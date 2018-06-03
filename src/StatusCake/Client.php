@@ -11,12 +11,14 @@ class Client extends Call
      *
      * @param string $username
      * @param string $token
+     * @param string $url
      */
-    public function __construct($username, $token)
+    public function __construct(string $username, string $token, string $url = "")
     {
         $credentials = new Credentials();
         $credentials->user = $username;
         $credentials->token = $token;
+        $this->url = $url;
         
         $this->registerCredentials($credentials);
     }
@@ -151,47 +153,6 @@ class Client extends Call
         }
     
         throw new Exception('StatusCake API Error - Test deletion failed.');
-    }
-    
-    /**
-     * Return user info
-     *
-     * @return mixed
-     */
-    public function account()
-    {
-        try {
-            $response = $this->callApi('Auth');
-        
-            if(is_object($response) && $response->Success)
-            {
-                return $response->Details;
-            }
-    
-            throw new Exception('StatusCake API Error - Account authentication failed.');
-        }
-        catch(Exception $e)
-        {
-            return false;
-        }
-    }
-    
-    /**
-     * Simply test the credentials.
-     *
-     * @return mixed
-     */
-    public function validAccount()
-    {
-        try {
-            $response = $this->account();
-            
-            return is_object($response);
-        }
-        catch(Exception $e)
-        {
-            return false;
-        }
     }
     
     /**
