@@ -171,7 +171,7 @@ class Test extends Call
      *
      * @return mixed
      */
-    public function getPerformance($parameters)
+    public function getPerformance($parameters = null)
     {
         $parameters['TestID'] = $this->testID;
         $parameters["Fields"] = [ "status", "performance" ];
