@@ -63,6 +63,18 @@ class Client extends Call
         $this->buildTestsFromResponse($response);
     }
 
+    public function getAlerts($test_id)
+    {
+        $response = $this->callApi('Tests/Periods?TestID=' . $test_id);
+
+        if (is_array($response))
+        {
+            return $response;
+        }
+
+        throw new Exception('StatusCake API Error - Test Alerts retrieval failed.');
+    }
+
     /**
      * @param array|null $tags
      * @param bool $matchAny
