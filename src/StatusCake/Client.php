@@ -32,8 +32,7 @@ class Client extends Call
     {
         // Check for success
         if (!is_array($response)) {
-
-            throw new Exception('StatusCake API Error - No list response on getTests.');
+            return array();
         }
 
         $testList = array();
@@ -71,8 +70,6 @@ class Client extends Call
         {
             return $response;
         }
-
-        throw new Exception('StatusCake API Error - Test Alerts retrieval failed.');
     }
 
     /**

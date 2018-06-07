@@ -159,8 +159,6 @@ class Test extends Call
         {
             return $response;
         }
-
-        throw new Exception('StatusCake API Error - Test periods retrieval failed.');
     }
 
     /**
@@ -182,8 +180,6 @@ class Test extends Call
         {
             return $response;
         }
-
-        throw new Exception('StatusCake API Error - Test performance retrieval failed.');
     }
 
     /**
@@ -199,8 +195,6 @@ class Test extends Call
         {
             return $response;
         }
-
-        throw new Exception('StatusCake API Error - Test Alerts retrieval failed.');
     }
 
     /**
